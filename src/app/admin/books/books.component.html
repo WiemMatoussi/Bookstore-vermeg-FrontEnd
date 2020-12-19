@@ -1,0 +1,36 @@
+<h1>List of books</h1>
+<a class="btn btn-outline-danger" (click)="addBook()">Add New Book</a>
+<br>
+<br>
+
+<div class="container row">
+  <div class="col-md-6">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Book reference</th>
+          <th>Book Title</th>
+          <th></th>          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of books">
+          <td>{{book.id}}</td>
+          <td>{{book.reference}}</td>
+          <td>{{book.title}}</td>
+        
+          <td>
+            <button type="button" class="btn btn-secondary btn-sm" (click)="viewBook(book.id)"> Show More</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-6">
+    <app-addbook *ngIf="action === 'edit' || action === 'add'" [book]="selectedBook" (bookAddedEvent)="refreshData()"></app-addbook>
+    <br><br>
+    <app-viewbook *ngIf="action === 'view'" [book]="selectedBook" (bookDeletedEvent)="refreshData()"></app-viewbook>
+
+  </div>
+</div>

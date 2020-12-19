@@ -1,0 +1,26 @@
+<br>
+<br>
+<br>
+
+
+
+
+<div class="table table-sm">
+    <div class="col-md-6">
+        <strong>Command: </strong>
+<table class="table table-striped" center>
+    <tr *ngFor="let item of cartBooks">
+    <td *ngIf="item">
+        {{item.title}}
+
+    </td>
+    <td> ${{item.unitPrice}}</td>
+    </tr>
+
+<tr>  <td><strong>Total: </strong> </td> <td> {{bookss}} </td></tr>
+
+
+</table>
+
+</div>
+</div>
